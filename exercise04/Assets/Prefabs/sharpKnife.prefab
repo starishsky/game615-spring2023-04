@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3128093638932871829}
   m_Layer: 0
   m_Name: sharpKnife
-  m_TagString: Untagged
+  m_TagString: knife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 4371356484214549295}
   - {fileID: 4371356483428453601}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &4065829557096720402
 CapsuleCollider:
@@ -43,7 +43,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4260569017011461448}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.99
   m_Height: 6.38
@@ -60,7 +60,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -70,6 +70,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 4260569017011461451}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 327fe6cf99e1d4a4599346b9976b1c61, type: 3}
@@ -125,6 +126,7 @@ PrefabInstance:
       value: blade
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 327fe6cf99e1d4a4599346b9976b1c61, type: 3}
 --- !u!4 &4371356484214549295 stripped
 Transform:
@@ -136,6 +138,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 4260569017011461451}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8e37096e38013824898c43b5dc556e9a, type: 3}
@@ -191,6 +194,7 @@ PrefabInstance:
       value: hilt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e37096e38013824898c43b5dc556e9a, type: 3}
 --- !u!4 &4371356483428453601 stripped
 Transform:

@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class PlaneScript : MonoBehaviour
 {
-    float forwardSpeed = 5.0f;
+    float forwardSpeed = 20.0f;
     float rotateSpeed = 0.1f;
     float rotationResetSpeed = 0.1f;
     Quaternion InitialRotation;
     Vector3 InitialPosition;
+
+    public GameObject sharpKnife;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        //InitialPosition = gameObject.transform.position;
+        InitialPosition = gameObject.transform.position;
         InitialRotation = gameObject.transform.rotation;
     }
 
@@ -23,6 +25,8 @@ public class PlaneScript : MonoBehaviour
     {
         //gameObject.transform.Rotate(0, rotateSpeed * Time.deltaTime, 0, Space.Self);
         gameObject.transform.Translate(transform.forward * forwardSpeed * Time.deltaTime, Space.World);
+
+        Physics.IgnoreCollision(sharpKnife.GetComponent<Collider>(), GetComponent<Collider>());
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -33,7 +37,7 @@ public class PlaneScript : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.W))
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, InitialRotation, Time.deltaTime * rotationResetSpeed);
-            //gameObject.transform.Translate(transform.forward * forwardSpeed * Time.deltaTime, Space.World);
+            gameObject.transform.Translate(transform.forward * forwardSpeed * Time.deltaTime, Space.World);
          
         }
 
