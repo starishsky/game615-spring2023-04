@@ -11,6 +11,7 @@ public class PlaneScript : MonoBehaviour
     Vector3 InitialPosition;
 
     public GameObject sharpKnife;
+    public Rigidbody rb;
     
 
     // Start is called before the first frame update
@@ -26,7 +27,7 @@ public class PlaneScript : MonoBehaviour
         //gameObject.transform.Rotate(0, rotateSpeed * Time.deltaTime, 0, Space.Self);
         gameObject.transform.Translate(transform.forward * forwardSpeed * Time.deltaTime, Space.World);
 
-        Physics.IgnoreCollision(sharpKnife.GetComponent<Collider>(), GetComponent<Collider>());
+        //Physics.IgnoreCollision(sharpKnife.GetComponent<Collider>(), GetComponent<Collider>());
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -37,7 +38,7 @@ public class PlaneScript : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.W))
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, InitialRotation, Time.deltaTime * rotationResetSpeed);
-            gameObject.transform.Translate(transform.forward * forwardSpeed * Time.deltaTime, Space.World);
+            //gameObject.transform.Translate(transform.forward * forwardSpeed * Time.deltaTime, Space.World);
          
         }
 
@@ -66,6 +67,16 @@ public class PlaneScript : MonoBehaviour
             gameObject.transform.Rotate(0, rotateSpeed, 0);
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("building"))
+        {
+            transform.rotation = InitialRotation;
+            transform.position = InitialPosition;
+            Debug.Log("help me oh my god");
+        }
     }
 
 }
